@@ -406,7 +406,7 @@ q.da = "";
 q.ua = k;
 q.H = "";
 q.Ha = "";
-q.Zb = n;
+q.$b = n;
 q.A = n;
 q.toString = function() {
   var a = [], b = this.ia;
@@ -465,7 +465,7 @@ function L(a) {
   return a
 }
 function J(a) {
-  a.Zb && g(Error("Tried to modify a read-only Uri"))
+  a.$b && g(Error("Tried to modify a read-only Uri"))
 }
 q.ib = function(a) {
   this.A = a;
@@ -661,7 +661,7 @@ Cb.prototype.Ca = function() {
   this.ub || (this.ub = j, this.w())
 };
 Cb.prototype.w = function() {
-  this.Ub && Db.apply(k, this.Ub);
+  this.Vb && Db.apply(k, this.Vb);
   if(this.Fb) {
     for(;this.Fb.length;) {
       this.Fb.shift()()
@@ -1065,7 +1065,7 @@ q.w = function() {
 function Sb(a, b) {
   this.pa = a || 1;
   this.ya = b || Tb;
-  this.Wa = w(this.kc, this);
+  this.Wa = w(this.lc, this);
   this.gb = x()
 }
 y(Sb, Rb);
@@ -1077,7 +1077,7 @@ q.setInterval = function(a) {
   this.pa = a;
   this.P && this.enabled ? (this.stop(), this.start()) : this.P && this.stop()
 };
-q.kc = function() {
+q.lc = function() {
   if(this.enabled) {
     var a = x() - this.gb;
     0 < a && a < 0.8 * this.pa ? this.P = this.ya.setTimeout(this.Wa, this.pa - a) : (this.dispatchEvent(Ub), this.enabled && (this.P = this.ya.setTimeout(this.Wa, this.pa), this.gb = x()))
@@ -1239,7 +1239,7 @@ q.mc = function(a) {
         this.F = 200 == c;
         this.a.info("XMLHTTP RESP (" + this.C + ") [ attempt " + this.wa + "]: " + this.ka + "\n" + this.s + "\n" + b + " " + c);
         if(this.F) {
-          if(4 == b && S(this), this.sb ? (lc(this, b, d), Ba && 3 == b && (Xb(this.Da, this.Ma, Ub, this.ic), this.Ma.start())) : (mc(this.a, this.C, d, k), nc(this, d)), this.F && !this.aa) {
+          if(4 == b && S(this), this.sb ? (lc(this, b, d), Ba && 3 == b && (Xb(this.Da, this.Ma, Ub, this.jc), this.Ma.start())) : (mc(this.a, this.C, d, k), nc(this, d)), this.F && !this.aa) {
             4 == b ? this.g.fa(this) : (this.F = n, gc(this))
           }
         }else {
@@ -1277,7 +1277,7 @@ function lc(a, b, c) {
   a.F = a.F && d;
   d || (mc(a.a, a.C, c, "[Invalid Chunked Response]"), S(a), oc(a))
 }
-q.ic = function() {
+q.jc = function() {
   var a = R(this.q), b = ic(this.q);
   this.za < b.length && (jc(this), lc(this, a, b), this.F && 4 != a && gc(this))
 };
@@ -1285,7 +1285,7 @@ function hc(a) {
   if(!a.u) {
     return j
   }
-  if(a.u.Yb()) {
+  if(a.u.Zb()) {
     return Xb(a.Da, a.u, "offline", a.ob), j
   }
   a.ob();
@@ -1340,7 +1340,7 @@ function rc(a, b) {
     a.I.open();
     a.I.write(e);
     a.I.close();
-    a.I.parentWindow.m = w(a.gc, a);
+    a.I.parentWindow.m = w(a.hc, a);
     a.I.parentWindow.d = w(a.Kb, a, j);
     a.I.parentWindow.rpcClose = w(a.Kb, a, n);
     c = a.I.createElement("div");
@@ -1349,10 +1349,10 @@ function rc(a, b) {
     a.a.info("TRIDENT REQ (" + a.C + ") [ attempt " + a.wa + "]: GET\n" + a.s)
   }
 }
-q.gc = function(a) {
-  U(w(this.fc, this, a), 0)
+q.hc = function(a) {
+  U(w(this.gc, this, a), 0)
 };
-q.fc = function(a) {
+q.gc = function(a) {
   if(!this.aa) {
     var b = this.a;
     b.info("TRIDENT TEXT (" + this.C + "): " + sc(b, a));
@@ -1362,12 +1362,12 @@ q.fc = function(a) {
   }
 };
 q.Kb = function(a) {
-  U(w(this.ec, this, a), 0)
+  U(w(this.fc, this, a), 0)
 };
-q.ec = function(a) {
+q.fc = function(a) {
   this.aa || (this.a.info("TRIDENT TEXT (" + this.C + "): " + a ? "success" : "failure"), S(this), this.F = a, this.g.fa(this))
 };
-q.Xb = function() {
+q.Yb = function() {
   jc(this);
   this.g.fa(this)
 };
@@ -1381,12 +1381,12 @@ function gc(a) {
 }
 function tc(a, b) {
   a.ma != k && g(Error("WatchDog timer not null"));
-  a.ma = U(w(a.hc, a), b)
+  a.ma = U(w(a.ic, a), b)
 }
 function jc(a) {
   a.ma && (r.clearTimeout(a.ma), a.ma = k)
 }
-q.hc = function() {
+q.ic = function() {
   this.ma = k;
   var a = x();
   0 <= a - this.kb ? (this.F && this.a.D("Received watchdog timeout even though request loaded successfully"), this.a.info("TIMEOUT: " + this.s), S(this), this.o = 2, T(), oc(this)) : (this.a.la("WatchDog timer called too early"), tc(this, this.kb - a))
@@ -1545,13 +1545,13 @@ Fc.prototype.reset = function(a, b, c, d, e) {
   "number" == typeof e || Gc++;
   d || x();
   this.ra = a;
-  this.$b = b;
+  this.ac = b;
   delete this.wb;
   delete this.vb
 };
 Fc.prototype.Pb = p("ra");
 function V(a) {
-  this.ac = a
+  this.bc = a
 }
 V.prototype.La = k;
 V.prototype.ra = k;
@@ -1578,8 +1578,8 @@ function Nc(a) {
 }
 q.log = function(a, b, c) {
   if(a.value >= Nc(this).value) {
-    a = this.Wb(a, b, c);
-    b = "log:" + a.$b;
+    a = this.Xb(a, b, c);
+    b = "log:" + a.ac;
     r.console && (r.console.timeStamp ? r.console.timeStamp(b) : r.console.markTimeline && r.console.markTimeline(b));
     r.msWriteProfilerMark && r.msWriteProfilerMark(b);
     for(b = this;b;) {
@@ -1593,8 +1593,8 @@ q.log = function(a, b, c) {
     }
   }
 };
-q.Wb = function(a, b, c) {
-  var d = new Fc(a, "" + b, this.ac);
+q.Xb = function(a, b, c) {
+  var d = new Fc(a, "" + b, this.bc);
   if(c) {
     d.wb = c;
     var e;
@@ -1720,7 +1720,7 @@ q.Y = n;
 q.Ra = 0;
 q.Z = k;
 q.Nb = "";
-q.lc = n;
+q.Rb = n;
 q.send = function(a, b, c, d) {
   this.f && g(Error("[goog.net.XhrIo] Object is active with another request"));
   b = b ? b.toUpperCase() : "GET";
@@ -1748,7 +1748,7 @@ q.send = function(a, b, c, d) {
     this.f.setRequestHeader(b, a)
   }, this);
   this.Nb && (this.f.responseType = this.Nb);
-  "withCredentials" in this.f && (this.f.withCredentials = this.lc);
+  "withCredentials" in this.f && (this.f.withCredentials = this.Rb);
   try {
     this.Z && (Tb.clearTimeout(this.Z), this.Z = k), 0 < this.Ra && (W(this.p, Y(this, "Will abort after " + this.Ra + "ms if incomplete")), this.Z = Tb.setTimeout(w(this.xa, this), this.Ra)), W(this.p, Y(this, "Sending request")), this.Ia = j, this.f.send(a), this.Ia = n
   }catch(i) {
@@ -1779,9 +1779,9 @@ q.w = function() {
   Sc.ja.w.call(this)
 };
 q.Gb = function() {
-  !this.cb && !this.Ia && !this.Y ? this.dc() : Xc(this)
+  !this.cb && !this.Ia && !this.Y ? this.ec() : Xc(this)
 };
-q.dc = function() {
+q.ec = function() {
   Xc(this)
 };
 function Xc(a) {
@@ -1962,7 +1962,7 @@ q.Ya = function(a) {
   this.b = 0;
   this.Qb = x()
 };
-q.Tb = function(a) {
+q.Ub = function(a) {
   a ? (this.b = 2, cd(this)) : (T(), a = this.g, a.a.debug("Test Connection Blocked"), a.h = a.V.h, Z(a, 9))
 };
 function cd(a) {
@@ -2028,7 +2028,7 @@ q.fa = function() {
         this.b = 1;
         var a = gd(this.g, this.Va, "/mail/images/cleardot.gif");
         L(a);
-        Zc(a.toString(), 5E3, w(this.Tb, this), 3, 2E3)
+        Zc(a.toString(), 5E3, w(this.Ub, this), 3, 2E3)
       }else {
         this.b = 2, cd(this)
       }
@@ -2066,9 +2066,9 @@ q.Ga = k;
 q.mb = k;
 q.L = k;
 q.u = k;
-q.Sb = j;
+q.Tb = j;
 q.ta = 0;
-q.bc = 0;
+q.cc = 0;
 q.Ea = n;
 q.c = k;
 q.G = k;
@@ -2076,7 +2076,7 @@ q.J = k;
 q.W = k;
 q.V = k;
 q.jb = k;
-q.Rb = j;
+q.Sb = j;
 q.qa = -1;
 q.Cb = -1;
 q.h = -1;
@@ -2190,7 +2190,7 @@ function vd(a) {
   if(a.k || a.J) {
     return a.a.D("Request already in progress"), n
   }
-  if(3 <= a.$ || !(a.u ? a.u.Yb() : 1)) {
+  if(3 <= a.$ || !(a.u ? a.u.Zb() : 1)) {
     return n
   }
   a.a.debug("Going to retry GET");
@@ -2233,10 +2233,10 @@ function nd(a) {
 }
 function fd(a, b, c) {
   a.a.debug("Test Connection Finished");
-  a.jb = a.Rb && c;
+  a.jb = a.Sb && c;
   a.h = b.h;
   a.a.debug("connectChannel_()");
-  a.Vb(id, 0);
+  a.Wb(id, 0);
   a.Ga = bd(a, a.H);
   qd(a)
 }
@@ -2276,7 +2276,7 @@ q.Hb = function(a, b) {
               }
             }
           }else {
-            this.Cb = e[1], c = this.Cb - this.qa, 0 < c && (e = e[2], this.a.debug(e + " bytes (in " + c + " arrays) are outstanding on the BackChannel"), 37500 > e && (this.jb && 0 == this.$) && !this.W && (this.W = U(w(this.cc, this), 6E3)))
+            this.Cb = e[1], c = this.Cb - this.qa, 0 < c && (e = e[2], this.a.debug(e + " bytes (in " + c + " arrays) are outstanding on the BackChannel"), 37500 > e && (this.jb && 0 == this.$) && !this.W && (this.W = U(w(this.dc, this), 6E3)))
           }
         }else {
           this.a.debug("Bad POST response data returned"), Z(this, 11)
@@ -2299,9 +2299,9 @@ q.Hb = function(a, b) {
   }
 };
 q.correctHostPrefix = function(a) {
-  return this.Sb ? this.c ? this.c.correctHostPrefix(a) : a : k
+  return this.Tb ? this.c ? this.c.correctHostPrefix(a) : a : k
 };
-q.cc = function() {
+q.dc = function() {
   this.W != k && (this.W = k, this.k.cancel(), this.k = k, vd(this), T())
 };
 function pd(a) {
@@ -2363,7 +2363,7 @@ function wd(a, b) {
   a.isActive() || (a.a.debug("Inactive channel"), c *= 2);
   return c * b
 }
-q.Vb = function(a) {
+q.Wb = function(a) {
   0 <= Wa(arguments, this.b) || g(Error("Unexpected channel state: " + this.b))
 };
 function Z(a, b) {
@@ -2371,7 +2371,7 @@ function Z(a, b) {
   if(2 == b || 9 == b) {
     var c = k;
     a.c && (c = a.c.getNetworkTestImageUri(a));
-    var d = w(a.jc, a);
+    var d = w(a.kc, a);
     c || (c = new I("//www.google.com/images/cleardot.gif"), L(c));
     $c(c.toString(), 1E4, d)
   }else {
@@ -2379,7 +2379,7 @@ function Z(a, b) {
   }
   xd(a, b)
 }
-q.jc = function(a) {
+q.kc = function(a) {
   a ? (this.a.info("Successfully pinged google.com"), T()) : (this.a.info("Failed to ping google.com"), T(), xd(this, 8))
 };
 function xd(a, b) {
@@ -2430,7 +2430,9 @@ function gd(a, b, c) {
 }
 q.Ba = function(a) {
   a && g(Error("Can't create secondary domain capable XhrIo object."));
-  return new Sc
+  a = new Sc;
+  a.Rb = j;
+  return a
 };
 q.isActive = function() {
   return!!this.c && this.c.isActive(this)
@@ -2559,7 +2561,7 @@ $ = function(a, b) {
         b.R = L(c.l());
         c = new Image;
         c.src = b.R;
-        c.onload = c.onerror = w(b.Xb, b);
+        c.onload = c.onerror = w(b.Yb, b);
         b.va = x();
         gc(b)
       }
@@ -2572,7 +2574,7 @@ $ = function(a, b) {
     b = o;
     0 == b.b && g(Error("Invalid operation: sending map when state is closed"));
     1E3 == b.r.length && b.a.D("Already have 1000 queued maps upon queueing " + vc(a));
-    b.r.push(new jd(b.bc++, a));
+    b.r.push(new jd(b.cc++, a));
     (2 == b.b || 3 == b.b) && qd(b)
   };
   this.send = function(a) {
